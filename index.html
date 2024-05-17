@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinkgeldrechner</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div id="pink_wrapper">
+        <h1>Trinkgeldrechner</h1>
+        <form> 
+            <label for="rechnung">Wie hoch war die rechnungß</label>
+            <input type="number" name="rechnung" id="rechnung" min="0">
+            <label for="people">Wie viele Menschen teilen sich die Rechnungß</label>
+            <input type="number" name="people" id="people" min="1">
+            <select name="service" id="service">
+                <option value="">Wie war der Service</option>
+                <option value="Schlecht">Schlecht</option>
+                <option value="Mittel">Mittel</option>
+                <option value="Super">Super</option>
+            </select>
+        </form>
+        <button id="calculate">Berechne</button>
+    </div>
+
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
