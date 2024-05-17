@@ -30,7 +30,8 @@ function newText(price:number, numOfGuest:number, quality: string) {
 }
 
 if(getCalculate) {
-    getCalculate.addEventListener('click', () => {
+    getCalculate.addEventListener('click', (event:Event) => {
+        event.preventDefault();
         let rechnung = 0;
         let people = 1;
         if (getRechnung.value) {
