@@ -5,23 +5,23 @@ const getService = document.getElementById('service') as HTMLSelectElement;
 const getWrapper = document.getElementById('pink_wrapper');
 const createText = document.createElement('h3');
 
-function newText(price:number, numOfGuest:number, quality: string) {
+function createNewText(price:number, numOfGuest:number, quality: string) {
     createText.innerHTML = '';
     
     let tringeldCalc = 0;
     let pricePerPerson = 0;
-    
-    
+    let trinkgeldProzentsatz = 0;
+
     if (quality == 'Schlecht') {
-        tringeldCalc = price / 100 * 2
-        pricePerPerson = (price + tringeldCalc) / numOfGuest;
+        trinkgeldProzentsatz = 2;
     } else if (quality == 'Mittel') {
-        tringeldCalc = price / 100 * 10
-        pricePerPerson = (price + tringeldCalc) / numOfGuest;
+        trinkgeldProzentsatz = 10
     } else if (quality == 'Super') {
-        tringeldCalc = price / 100 * 20
-        pricePerPerson = (price + tringeldCalc) / numOfGuest;
+        trinkgeldProzentsatz = 20;
     } else {return 0}
+
+    tringeldCalc = price / 100 * trinkgeldProzentsatz
+    pricePerPerson = (price + tringeldCalc) / numOfGuest;
 
     createText.innerText = `The price of the dinner for ${numOfGuest} people was ${price} Yen. 
     The trinkgeld is ${tringeldCalc.toFixed(2)} Yen.
@@ -42,6 +42,6 @@ if(getCalculate) {
         }
         
         const service = getService.value;
-        newText(rechnung, people, service);
+        createNewText(rechnung, people, service);
     });
 }
